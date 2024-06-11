@@ -1,6 +1,7 @@
 import { Col, Row } from "react-bootstrap";
 import "./LandingPage.scss";
 import LandingImage from "../../assets/Images/RecipeBookLandin.png";
+import { Link } from "react-router-dom";
 
 /* TODO add custom button component, tweak main Image,add seconday image, Text */
 
@@ -16,7 +17,9 @@ const LadingPage = () => {
 						<p className="display-1">RecipeBook</p>
 						<p className="display-5">Discover Recipes</p>
 
-						<button className="btn btn-danger rounded-pill mt-5 py-2 px-5 fs-5">Explore</button>
+						<Link to="/home">
+							<button className="bigRedButton">Explore</button>
+						</Link>
 					</div>
 				</Col>
 			</Row>
