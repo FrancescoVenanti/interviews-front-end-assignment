@@ -1,8 +1,9 @@
 // dataSlice.ts
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { Recipe } from "../types/Recipe";
 
 interface DataState {
-	items: any[];
+	items: Recipe[];
 	status: "idle" | "loading" | "succeeded" | "failed";
 	error: string | null;
 }
