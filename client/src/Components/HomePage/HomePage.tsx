@@ -28,12 +28,12 @@ const HomePage = () => {
 			<NavBar />
 			<div className="d-flex">
 				<Sidebar />
-				<div className="p-3">
+				<div className="p-2">
 					{status === "loading" && <p>Loading...</p>}
 					{status === "succeeded" && (
 						<div>
 							{recipes.map((item, index) => (
-								<div key={index} className="containerGray mb-3">
+								<div key={index} className="containerGray mb-3 shadow">
 									<SingleRecipe recipe={item} />
 								</div>
 							))}
