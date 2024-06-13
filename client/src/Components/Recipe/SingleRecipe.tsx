@@ -2,7 +2,7 @@
 import React from "react";
 import { useAppSelector } from "../../redux/hooks"; // Adjust the path as necessary
 import { Recipe } from "../../types/Types"; // Adjust the path as necessary
-import "./SingleRecipe.scss";
+import "./Recipe.scss";
 import { Link } from "react-router-dom";
 
 interface SingleRecipeProps {
@@ -60,7 +60,7 @@ const SingleRecipe: React.FC<SingleRecipeProps> = ({ recipe }) => {
 					</span>
 				))}
 
-				<div className="d-flex justify-content-center justify-content-md-start mt-3">
+				<div className="d-flex justify-content-center justify-content-md-start mt-2 mt-md-3">
 					<p className="me-3 badgeWhite">{cuisineName}</p>
 					<p className="badgeWhite">{dietName}</p>
 				</div>

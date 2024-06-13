@@ -24,11 +24,11 @@ const HomePage = () => {
 	}, [dispatch]);
 
 	return (
-		<div className="d-flex flex-column">
+		<div className="d-flex flex-column container-lg p-0">
 			<NavBar />
 			<div className="d-flex">
 				<Sidebar />
-				<div className="p-2">
+				<div className="p-3">
 					{status === "loading" && <p>Loading...</p>}
 					{status === "succeeded" && (
 						<div>

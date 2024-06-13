@@ -1,5 +1,5 @@
 // src/features/commentsSlice.ts
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
 import { Comment } from "../../types/Types";
 
@@ -20,6 +20,36 @@ export const fetchComments = createAsyncThunk("comments/fetchComments", async ()
 	return response.data;
 });
 
+export const addComment = createAsyncThunk(
+	"comments/addComment",
+	async ({
+		recipeId,
+		comment,
+		rating,
+		date,
+	}: {
+		recipeId: string;
+		comment: string;
+		rating: number;
+		date: string;
+	}) => {
+		const response = await axios.post(
+			`http://localhost:8080/recipes/${recipeId}/comments`,
+			{
+				comment,
+				rating,
+				date,
+			},
+			{
+				headers: {
+					"Content-Type": "application/json",
+				},
+			}
+		);
+		return response.data;
+	}
+);
+
 const commentsSlice = createSlice({
 	name: "comments",
 	initialState,
@@ -29,11 +59,22 @@ const commentsSlice = createSlice({
 			.addCase(fetchComments.pending, (state) => {
 				state.status = "loading";
 			})
-			.addCase(fetchComments.fulfilled, (state, action) => {
+			.addCase(fetchComments.fulfilled, (state, action: PayloadAction<Comment[]>) => {
 				state.status = "succeeded";
 				state.comments = action.payload;
 			})
 			.addCase(fetchComments.rejected, (state, action) => {
+				state.status = "failed";
+				state.error = action.error.message;
+			})
+			.addCase(addComment.pending, (state) => {
+				state.status = "loading";
+			})
+			.addCase(addComment.fulfilled, (state, action: PayloadAction<Comment>) => {
+				state.status = "succeeded";
+				state.comments.push(action.payload);
+			})
+			.addCase(addComment.rejected, (state, action) => {
 				state.status = "failed";
 				state.error = action.error.message;
 			});
@@ -41,5 +82,3 @@ const commentsSlice = createSlice({
 });
 
 export default commentsSlice.reducer;
-
-// Repeat similar pattern for cuisinesSlice.ts, difficultiesSlice.ts, dietsSlice.ts
