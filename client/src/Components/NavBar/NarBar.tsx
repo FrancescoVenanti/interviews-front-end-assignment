@@ -22,7 +22,9 @@ const NavBar = () => {
 				</form>
 				<div className="navbar-nav ms-auto">
 					<div className="d-flex align-items-center">
-						<button className="smallRedButton me-2">Add</button>
+						<Link to={"/add-recipe"} className="smallRedButton me-2 text-decoration-none">
+							Add
+						</Link>
 
 						<button className="btn btn-transparent me-2">
 							<FaUtensils className="text-secondary" />

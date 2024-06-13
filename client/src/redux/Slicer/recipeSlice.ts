@@ -1,5 +1,5 @@
 // src/features/recipesSlice.ts
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
 import { Recipe } from "../../types/Types";
 
@@ -20,6 +20,15 @@ export const fetchRecipes = createAsyncThunk("recipes/fetchRecipes", async () =>
 	return response.data;
 });
 
+export const addRecipe = createAsyncThunk("recipes/addRecipe", async (newRecipe: FormData) => {
+	const response = await axios.post("http://localhost:8080/recipes", newRecipe, {
+		headers: {
+			"Content-Type": "multipart/form-data",
+		},
+	});
+	return response.data;
+});
+
 const recipesSlice = createSlice({
 	name: "recipes",
 	initialState,
@@ -29,11 +38,22 @@ const recipesSlice = createSlice({
 			.addCase(fetchRecipes.pending, (state) => {
 				state.status = "loading";
 			})
-			.addCase(fetchRecipes.fulfilled, (state, action) => {
+			.addCase(fetchRecipes.fulfilled, (state, action: PayloadAction<Recipe[]>) => {
 				state.status = "succeeded";
 				state.recipes = action.payload;
 			})
 			.addCase(fetchRecipes.rejected, (state, action) => {
+				state.status = "failed";
+				state.error = action.error.message;
+			})
+			.addCase(addRecipe.pending, (state) => {
+				state.status = "loading";
+			})
+			.addCase(addRecipe.fulfilled, (state, action: PayloadAction<Recipe>) => {
+				state.status = "succeeded";
+				state.recipes.push(action.payload);
+			})
+			.addCase(addRecipe.rejected, (state, action) => {
 				state.status = "failed";
 				state.error = action.error.message;
 			});
@@ -41,5 +61,3 @@ const recipesSlice = createSlice({
 });
 
 export default recipesSlice.reducer;
-
-// Repeat similar pattern for other slices
