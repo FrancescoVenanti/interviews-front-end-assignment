@@ -2,7 +2,7 @@
 import React from "react";
 import { useAppSelector } from "../../redux/hooks"; // Adjust the path as necessary
 import { Recipe } from "../../types/Types"; // Adjust the path as necessary
-import "./SingleRecipe.scss";
+import "./Recipe.scss";
 import { Link } from "react-router-dom";
 
 interface SingleRecipeProps {
