@@ -111,8 +111,8 @@ const AddRecipe: React.FC = () => {
 
 						<div className="containerGray mt-3">
 							<p className="fs-5 fw-bold m-0">Image</p>
-							<div className="mb-3">
-								<div className="image-selector">
+							<div className="mb-1 mt-3">
+								<div className="image-selector p-3">
 									<input
 										className="h-100 w-100"
 										type="file"
@@ -120,92 +120,80 @@ const AddRecipe: React.FC = () => {
 										onChange={handleImageChange}
 									/>
 									<label htmlFor="fileInput">
-										{image ? (
-											<span>{image.name}</span>
-										) : (
-											<span>Drag and drop an image here or click to select</span>
-										)}
-									</label>
-								</div>
-							</div>
-						</div>
-
-						<div className="containerGray mt-3">
-							<p className="fs-5 fw-bold m-0">Additional Information</p>
-							<div className="d-flex flex-column flex-md-row justify-content-between px-4 py-2">
-								<div className="mb-3">
-									<label className="form-label">
-										Cuisine:
-										<select
-											className="form-control"
-											value={cuisineId}
-											onChange={(e) => setCuisineId(e.target.value)}
-											required
-										>
-											<option value="" disabled>
-												Select Cuisine
-											</option>
-											{cuisines.map((cuisine) => (
-												<option key={cuisine.id} value={cuisine.id}>
-													{cuisine.name}
-												</option>
-											))}
-										</select>
-									</label>
-								</div>
-								<div className="mb-3">
-									<label className="form-label">
-										Diet:
-										<select
-											className="form-control"
-											value={dietId}
-											onChange={(e) => setDietId(e.target.value)}
-											required
-										>
-											<option value="" disabled>
-												Select Diet
-											</option>
-											{diets.map((diet) => (
-												<option key={diet.id} value={diet.id}>
-													{diet.name}
-												</option>
-											))}
-										</select>
-									</label>
-								</div>
-								<div className="mb-3">
-									<label className="form-label">
-										Difficulty:
-										<select
-											className="form-control"
-											value={difficultyId}
-											onChange={(e) => setDifficultyId(e.target.value)}
-											required
-										>
-											<option value="" disabled>
-												Select Difficulty
-											</option>
-											{difficulties.map((difficulty) => (
-												<option key={difficulty.id} value={difficulty.id}>
-													{difficulty.name}
-												</option>
-											))}
-										</select>
+										{image ? <span>{image.name}</span> : <span>Click to select an image</span>}
 									</label>
 								</div>
 							</div>
 						</div>
 					</div>
-					<div className="col-12 col-lg-4">
+					<div className="col-12 col-lg-4 mt-3 mt-md-0">
+						<div className="containerGray mb-3 mt-3 mt-lg-0">
+							<p className="fs-5 fw-bold m-0">Additional Information</p>
+							<div className=" px-4 py-2">
+								<div className="mb-3">
+									<select
+										className="form-control rounded-pill"
+										value={cuisineId}
+										onChange={(e) => setCuisineId(e.target.value)}
+										required
+									>
+										<option value="" disabled>
+											Select Cuisine
+										</option>
+										{cuisines.map((cuisine) => (
+											<option key={cuisine.id} value={cuisine.id}>
+												{cuisine.name}
+											</option>
+										))}
+									</select>
+								</div>
+								<div className="mb-3">
+									<select
+										className="form-control rounded-pill"
+										value={dietId}
+										onChange={(e) => setDietId(e.target.value)}
+										required
+									>
+										<option value="" disabled>
+											Select Diet
+										</option>
+										{diets.map((diet) => (
+											<option key={diet.id} value={diet.id}>
+												{diet.name}
+											</option>
+										))}
+									</select>
+								</div>
+								<div className="mb-3">
+									<select
+										className="form-control rounded-pill"
+										value={difficultyId}
+										onChange={(e) => setDifficultyId(e.target.value)}
+										required
+									>
+										<option value="" disabled>
+											Select Difficulty
+										</option>
+										{difficulties.map((difficulty) => (
+											<option key={difficulty.id} value={difficulty.id}>
+												{difficulty.name}
+											</option>
+										))}
+									</select>
+								</div>
+							</div>
+						</div>
 						<div className="containerGray p-3">
 							<p className="fs-5 fw-bold m-0">Recipe preview</p>
 							<div className="d-flex justify-content-center">
-								{image && (
+								{image ? (
 									<img
 										src={image ? URL.createObjectURL(image) : "https://placehold.co/400"}
 										alt="recipe"
 										className="img-fluid rounded-3"
 									/>
+								) : (
+									<p className="m-0 text-black-50 mt-3">Select an image to see the preview</p>
 								)}
 							</div>
 						</div>
