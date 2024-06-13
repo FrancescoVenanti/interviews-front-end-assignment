@@ -25,7 +25,7 @@ const RecipeDetails = () => {
 	const allComments = useAppSelector((state) => state.comments.comments);
 	const comments = allComments.filter((comment) => comment.recipeId === id);
 	return (
-		<div>
+		<div className="container-lg">
 			<NavBar />
 			{recipe ? (
 				<div className="p-3">

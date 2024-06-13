@@ -60,7 +60,7 @@ const SingleRecipe: React.FC<SingleRecipeProps> = ({ recipe }) => {
 					</span>
 				))}
 
-				<div className="d-flex justify-content-center justify-content-md-start mt-3">
+				<div className="d-flex justify-content-center justify-content-md-start mt-2 mt-md-3">
 					<p className="me-3 badgeWhite">{cuisineName}</p>
 					<p className="badgeWhite">{dietName}</p>
 				</div>
