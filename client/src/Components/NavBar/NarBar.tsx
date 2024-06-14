@@ -18,7 +18,7 @@ const NavBar = () => {
 	};
 
 	return (
-		<nav className="navbar navbar-expand-md navbar-light bg-light sticky-top navBar">
+		<nav className="navbar navbar-expand-md navbar-light bg-light sticky-top navBar shadow-sm">
 			<div className="container-fluid">
 				<Link to={"/home"} className="text-decoration-none">
 					<p className="navbar-brand m-0 me-3 ">RecipeBook</p>
