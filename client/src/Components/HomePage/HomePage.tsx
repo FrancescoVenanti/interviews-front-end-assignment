@@ -28,7 +28,7 @@ const HomePage = () => {
 			<NavBar />
 			<div className="d-flex">
 				<Sidebar />
-				<div className="p-3">
+				<div className="p-3 pe-0">
 					{status === "loading" && <p>Loading...</p>}
 					{status === "succeeded" && (
 						<div>

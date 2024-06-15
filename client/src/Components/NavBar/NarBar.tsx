@@ -4,7 +4,7 @@ import { useState } from "react";
 import { FaClock, FaUser, FaUtensils } from "react-icons/fa6";
 import { Link, useNavigate } from "react-router-dom";
 
-//TODO add user icon + implement functionalities
+//TODO Handle responsiveness
 
 const NavBar = () => {
 	const [query, setQuery] = useState("");
