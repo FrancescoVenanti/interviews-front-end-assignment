@@ -5,7 +5,7 @@ import "./Sidebar.scss"; // Ensure this is imported for your custom button style
 
 const Sidebar = () => {
 	return (
-		<div className="sidebar bg-light">
+		<div className="sidebar bg-light shadow-sm">
 			<div className="container-fluid p-3">
 				<div className="d-flex flex-column justify-content-center mt-4">
 					<button className="btn btn-transparent mb-2 ">
