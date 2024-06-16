@@ -5,6 +5,7 @@ import SingleRecipe from "../Recipe/SingleRecipe";
 import Filters from "./Filters";
 import { useEffect, useState } from "react";
 import NavBar from "../NavBar/NarBar";
+import Footer from "../Footer/Footer";
 
 const SearchPage = () => {
 	const param = useParams<{ query: string }>();
@@ -47,6 +48,7 @@ const SearchPage = () => {
 					)}
 				</div>
 			</div>
+			<Footer />
 		</div>
 	);
 };

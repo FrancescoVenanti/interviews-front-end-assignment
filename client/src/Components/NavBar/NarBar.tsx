@@ -1,8 +1,10 @@
 //top navbbar component
 
 import { useState } from "react";
-import { FaClock, FaUser, FaUtensils } from "react-icons/fa6";
+import { Container, Navbar, Nav, Form, FormControl } from "react-bootstrap";
+import { FaBars, FaClock, FaUser, FaUtensils } from "react-icons/fa6";
 import { Link, useNavigate } from "react-router-dom";
+import IsMobile from "../../functions/isMobile";
 
 //TODO Handle responsiveness
 
@@ -17,41 +19,46 @@ const NavBar = () => {
 		}
 	};
 
+	const isMobile = IsMobile();
+	console.log(isMobile);
+
 	return (
-		<nav className="navbar navbar-expand-md navbar-light bg-light sticky-top navBar shadow-sm">
-			<div className="container-fluid">
-				<Link to={"/home"} className="text-decoration-none">
-					<p className="navbar-brand m-0 me-3 ">RecipeBook</p>
-				</Link>
-				<form className="d-flex" onSubmit={handleSubmit}>
-					<input
-						className="form-control rounded-pill me-2"
+		<Navbar bg="light" expand="lg" sticky="top">
+			<Container fluid>
+				<Navbar.Brand as={Link} to="/home">
+					RecipeBook
+				</Navbar.Brand>
+				<Form className="d-flex mt-2 mt-lg-0 searchbar" onSubmit={handleSubmit}>
+					<FormControl
 						type="search"
 						placeholder="Search for a recipe"
+						className="me-2 rounded-pill"
 						aria-label="Search"
 						value={query}
 						onChange={(e) => setQuery(e.target.value)}
 					/>
-				</form>
-				<div className="navbar-nav ms-auto">
-					<div className="d-flex align-items-center">
-						<Link to={"/add-recipe"} className="smallRedButton me-2 text-decoration-none">
-							Add
-						</Link>
+				</Form>
+				<Navbar.Toggle aria-controls="responsive-navbar-nav" className="border-0">
+					<FaBars className="border-0" />
+				</Navbar.Toggle>
+				<Navbar.Collapse id="navbarScroll">
+					<Nav className="ms-auto d-flex flex-row align-items-center justify-content-center">
+						<div>
+							<Nav.Link as={Link} to="/add-recipe">
+								<button className="smallRedButton">Add Recipe</button>
+							</Nav.Link>
+						</div>
+						<div className="d-flex align-items-center ms-4">
+							<FaUtensils className="me-3" />
 
-						<button className="btn btn-transparent me-2">
-							<FaUtensils className="text-secondary" />
-						</button>
-						<button className="btn btn-transparent me-2">
-							<FaClock className="text-secondary" />
-						</button>
-						<button className="btn btn-transparent me-2">
-							<FaUser className="text-secondary" />
-						</button>
-					</div>
-				</div>
-			</div>
-		</nav>
+							<FaClock className="me-3" />
+
+							<FaUser className="me-3" />
+						</div>
+					</Nav>
+				</Navbar.Collapse>
+			</Container>
+		</Navbar>
 	);
 };
 

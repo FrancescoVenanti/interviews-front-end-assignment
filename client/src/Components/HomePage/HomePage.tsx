@@ -9,6 +9,7 @@ import { fetchDifficulties } from "../../redux/Slicer/difficultiesSlice";
 import { fetchDiets } from "../../redux/Slicer/dietsSlice";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import SingleRecipe from "../Recipe/SingleRecipe";
+import Footer from "../Footer/Footer";
 
 const HomePage = () => {
 	const dispatch = useAppDispatch();
@@ -42,6 +43,7 @@ const HomePage = () => {
 					{status === "failed" && <p>{error}</p>}
 				</div>
 			</div>
+			<Footer />
 		</div>
 	);
 };

@@ -8,6 +8,7 @@ import { fetchDifficulties } from "../../redux/Slicer/difficultiesSlice";
 import "bootstrap/dist/css/bootstrap.min.css";
 import NavBar from "../NavBar/NarBar";
 import { Link, useNavigate } from "react-router-dom";
+import Footer from "../Footer/Footer";
 
 const AddRecipe: React.FC = () => {
 	const [name, setName] = useState<string>("");
@@ -68,7 +69,7 @@ const AddRecipe: React.FC = () => {
 	};
 
 	return (
-		<div className="container-lg p-0">
+		<div className="container-lg p-0 add-recipe">
 			<NavBar />
 
 			<form onSubmit={handleSubmit} className="p-3">
@@ -208,6 +209,7 @@ const AddRecipe: React.FC = () => {
 					</div>
 				</div>
 			</form>
+			<Footer />
 		</div>
 	);
 };

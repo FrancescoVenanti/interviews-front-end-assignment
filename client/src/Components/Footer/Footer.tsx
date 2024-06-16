@@ -1,6 +1,8 @@
+import "./footer.scss";
+
 const Footer = () => {
 	return (
-		<div className="container-lg sticky-lg-bottom w-100 bg-light p-3 border-top border-white">
+		<div className="container-lg w-100 bg-light p-3 border-top border-white footer">
 			<div className="row">
 				<div className="col-12 col-md-6">
 					<div className="d-flex h-100 flex-column justify-content-center align-items-center align-items-lg-start">
