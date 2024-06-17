@@ -40,7 +40,8 @@ const recipesSlice = createSlice({
 			})
 			.addCase(fetchRecipes.fulfilled, (state, action: PayloadAction<Recipe[]>) => {
 				state.status = "succeeded";
-				state.recipes = action.payload;
+				// reverted so last added recipe is first
+				state.recipes = action.payload.slice().reverse();
 			})
 			.addCase(fetchRecipes.rejected, (state, action) => {
 				state.status = "failed";

@@ -399,6 +399,18 @@
       "dietId": "4",
       "difficultyId": "1",
       "image": "/uploads/1718269476490.jpg"
+    },
+    {
+      "id": "1718612807384",
+      "name": "New Test",
+      "ingredients": [
+        "Some ingredients."
+      ],
+      "instructions": "some instructions",
+      "cuisineId": "4",
+      "dietId": "2",
+      "difficultyId": "3",
+      "image": "/uploads/1718612807380.jpeg"
     }
   ],
   "comments": [
