@@ -5,6 +5,7 @@ import { Container, Navbar, Nav, Form, FormControl } from "react-bootstrap";
 import { FaBars, FaClock, FaUser, FaUtensils } from "react-icons/fa6";
 import { Link, useNavigate } from "react-router-dom";
 import IsMobile from "../../functions/isMobile";
+import "./NavBar.scss";
 
 //TODO Handle responsiveness
 

@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { fetchComments } from "../../redux/Slicer/commentSlice";
 import { fetchRecipes } from "../../redux/Slicer/recipeSlice";
 import NavBar from "../NavBar/NarBar";
@@ -11,9 +12,23 @@ import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import SingleRecipe from "../Recipe/SingleRecipe";
 import Footer from "../Footer/Footer";
 
+const containerVariants = {
+	hidden: { opacity: 0 },
+	show: {
+		opacity: 1,
+		transition: {
+			staggerChildren: 0.1,
+		},
+	},
+};
+
+const itemVariants = {
+	hidden: { x: -100, opacity: 0 },
+	show: { x: 0, opacity: 1, transition: { duration: 0.5 } },
+};
+
 const HomePage = () => {
 	const dispatch = useAppDispatch();
-
 	const { recipes, status, error } = useAppSelector((state) => state.recipes);
 
 	useEffect(() => {
@@ -32,13 +47,18 @@ const HomePage = () => {
 				<div className="p-3 pe-0">
 					{status === "loading" && <p>Loading...</p>}
 					{status === "succeeded" && (
-						<div>
+						<motion.div
+							variants={containerVariants}
+							initial="hidden"
+							animate="show"
+							className="recipe-list"
+						>
 							{recipes.map((item, index) => (
-								<div key={index} className="containerGray mb-3 shadow">
+								<motion.div key={index} className="containerGray mb-3 shadow" variants={itemVariants}>
 									<SingleRecipe recipe={item} />
-								</div>
+								</motion.div>
 							))}
-						</div>
+						</motion.div>
 					)}
 					{status === "failed" && <p>{error}</p>}
 				</div>
