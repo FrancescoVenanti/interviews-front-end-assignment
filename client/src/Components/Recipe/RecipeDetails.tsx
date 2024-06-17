@@ -9,6 +9,7 @@ import PostComment from "./PostComment";
 import { useEffect } from "react";
 import { fetchRecipes } from "../../redux/Slicer/recipeSlice";
 import { fetchComments } from "../../redux/Slicer/commentSlice";
+import Footer from "../Footer/Footer";
 
 const RecipeDetails = () => {
 	const { id } = useParams();
@@ -70,6 +71,7 @@ const RecipeDetails = () => {
 			) : (
 				<p>Loading...</p>
 			)}
+			<Footer />
 		</div>
 	);
 };

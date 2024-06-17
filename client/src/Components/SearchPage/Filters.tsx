@@ -8,6 +8,7 @@ import { fetchCuisines } from "../../redux/Slicer/cousineSlice";
 import { fetchDiets } from "../../redux/Slicer/dietsSlice";
 import { fetchDifficulties } from "../../redux/Slicer/difficultiesSlice";
 import { fetchRecipes } from "../../redux/Slicer/recipeSlice";
+import "./filters.scss";
 
 interface FiltersProps {
 	expandFilters: boolean;
@@ -52,7 +53,7 @@ const Filters: React.FC<FiltersProps> = ({ expandFilters, setExpandFilter, setSe
 
 	if (!expandFilters) {
 		return (
-			<div className="bg-light me-3 shadow">
+			<div className="bg-light me-lg-3 mt-3 mt-lg-0 shadow filters">
 				<button className="btn btn-transparent" onClick={() => setExpandFilter(true)}>
 					<FaArrowRight className="ms-3" />
 				</button>
@@ -60,7 +61,7 @@ const Filters: React.FC<FiltersProps> = ({ expandFilters, setExpandFilter, setSe
 		);
 	} else {
 		return (
-			<div className="bg-light me-3 shadow">
+			<div className="bg-light me-lg-3 mt-3 mt-lg-0 shadow filters">
 				<button className="btn btn-transparent" onClick={() => setExpandFilter(false)}>
 					<FaArrowLeft className="ms-2 mt-2" />
 				</button>
