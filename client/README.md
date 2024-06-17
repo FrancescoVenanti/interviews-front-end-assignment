@@ -29,3 +29,9 @@
 ### Built with
 
 -   React + Vite + Typescript
+
+#### Side notes
+
+-   The app has been build with a mobile first approach.
+-   I tried to follow the mockups adding a bit of a personal twist to them without changing them too much.
+-   Some of the logic and designs can surely be improved but i tried to keep everything simple and readable.
