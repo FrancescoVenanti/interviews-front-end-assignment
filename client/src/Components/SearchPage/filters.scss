@@ -1,0 +1,10 @@
+.filters {
+	position: sticky;
+	top: 50px;
+}
+@media screen and (max-width: 768px) {
+	.filters {
+		position: relative;
+		top: 0;
+	}
+}

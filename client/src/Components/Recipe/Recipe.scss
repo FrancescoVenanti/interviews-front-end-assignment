@@ -1,0 +1,95 @@
+.recipeImg {
+	aspect-ratio: 1/1;
+	object-fit: cover;
+}
+
+.badgeWhite {
+	background-color: rgb(252, 252, 252);
+	color: rgb(10, 10, 10);
+	border: 1px solid rgb(10, 10, 10);
+	border-radius: 5px;
+	padding: 2px 4px;
+	font-size: 0.9rem;
+}
+
+.ingredients {
+	font-size: 0.9rem;
+	color: rgb(135, 135, 135);
+}
+
+.recipeDetailsImg {
+	aspect-ratio: 3/1;
+	width: 100%;
+	object-fit: cover;
+	&:hover {
+		opacity: 0.95;
+		transform: scale(1.02);
+		transition: all 0.2s ease;
+	}
+}
+@media screen and (max-width: 768px) {
+	.recipeDetailsImg {
+		aspect-ratio: 16/9;
+	}
+}
+
+li {
+	list-style-type: none;
+}
+
+.userIcon {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+}
+.add-recipe {
+	min-height: 100vh;
+}
+
+.image-selector {
+	width: 100%;
+	height: 200px;
+	border: 2px dashed #ccc;
+	border-radius: 2rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: rgba(255, 255, 255, 0.7);
+	transition: border-color 0.3s ease, background-color 0.3s ease;
+	cursor: pointer;
+	position: relative;
+
+	&:hover {
+		border-color: #000000;
+		background-color: rgba(255, 255, 255, 0.9);
+	}
+
+	&:active {
+		border-color: #000000;
+		background-color: rgba(255, 255, 255, 0.9);
+	}
+
+	input[type="file"] {
+		display: none;
+	}
+
+	label {
+		background-color: #ffffff;
+		color: rgb(0, 0, 0);
+		border: none;
+		padding: 10px 20px;
+		border-radius: 50px;
+		border: 1px solid black;
+		cursor: pointer;
+		transition: background-color 0.3s ease;
+		text-align: center;
+
+		&:hover {
+			background-color: #dadada;
+		}
+
+		&:focus {
+			outline: none;
+		}
+	}
+}

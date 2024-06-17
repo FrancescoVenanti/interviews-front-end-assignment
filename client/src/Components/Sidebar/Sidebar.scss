@@ -1,0 +1,18 @@
+/* SidebarStyles.scss */
+.sidebar {
+	width: 80px;
+	z-index: 11;
+	height: 100vh;
+	position: sticky;
+	top: 40px;
+}
+
+@media screen and (max-width: 992px) {
+	.sidebar {
+		width: 100%;
+		height: auto;
+		position: fixed;
+		bottom: 0;
+		top: auto;
+	}
+}
